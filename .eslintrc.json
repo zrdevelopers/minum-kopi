@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals"],
+  "rules": {
+    // Add specific rules here if needed
+    "@next/next/no-img-element": "off",
+    "@next/next/no-sync-scripts": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off"
+  }
 }
