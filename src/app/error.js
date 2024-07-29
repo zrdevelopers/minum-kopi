@@ -1,0 +1,42 @@
+'use client';
+
+import { useEffect } from 'react';
+
+import Header from '@/layouts/header';
+import { Container } from '@mui/material';
+import { Fragment } from 'react';
+
+export default function Error({ error, reset }) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
+
+  return (
+    <Fragment>
+      <Header />
+      <Container
+        maxWidth="lg"
+        sx={{
+          '@media (max-width: 599px)': {
+            paddingTop: '3rem'
+          },
+          '@media (min-width: 600px)': {
+            paddingTop: '4rem'
+          }
+        }}
+      >
+        <h2 className="text-3xl p-2">Brum!!! Something went wrong.</h2>
+        <button
+          className="bg-purple-500 text-white text-md rounded-lg p-1 cursor-pointer"
+          onClick={
+            // Attempt to recover by trying to re-render the segment
+            () => reset()
+          }
+        >
+          Try again
+        </button>
+      </Container>
+    </Fragment>
+  );
+}
